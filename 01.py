@@ -15,7 +15,7 @@ def task(common, tid, turn):
         v = common.value + 1
         print(f'{tid}-{i}: Inside critical section')
         common.value = v
-        print(f'{tid}-{i}: End od critical section')
+        print(f'{tid}-{i}: End of critical section')
         turn.value = (tid + 1) % N
 
 def main():
@@ -23,7 +23,7 @@ def main():
     common = Value('i', 0)
     turn = Value('i', 0)
     for tid in range(N):
-        lp.append(Process(target=task, args=(common, tid turn)))
+        lp.append(Process(target=task, args=(common, tid , turn)))
     print(f"Valor inicial del contador {common.value}")
     for p in lp:
         p.start()
